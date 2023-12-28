@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            text-align: center;
+            font-weight: bold;
+            font-size: 2pc;
+        }
+        input{
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            font-size: 30px;
+            margin-top: 10PX;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <p>Enter your weight and height below to check your BMI results</p>
+    <p>Put your weight in here (KG)</p>
+    <input type="text" id="weight">
+    <p>And your height in here (CM)</p>
+    <input type="text" id="height">
+    <br>
+    <button onclick="calu()">submit</button>
+
+    <div id="result"></div>
+</body>
+<script>
+    function calu (){
+        const weight = document.getElementById("weight").value;
+        const height = document.getElementById("height").value;
+        
+        const BMI = (weight / ((height * height) / 10000)).toFixed(2);
+
+        console.log(BMI);
+        if(BMI <= 18.4){
+            document.getElementById("result").innerHTML=` Your BMI is ${BMI} which means You are Under Weight `
+        }
+        else if(BMI >= 18.5 && BMI <= 24.9){
+            document.getElementById("result").innerHTML=`Your BMI is ${BMI} which means You are Normal Weight`
+        }
+        else if(BMI >= 30){
+            document.getElementById("result").innerHTML=`Your BMI is ${BMI} which means You are Obese`
+            
+        }
+
+    }
+</script>
+</html>
